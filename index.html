@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FERGIE | DOUBLE DUTCHESS</title>
+    
+    <!-- Bibliotecas Necessárias (Carregam sozinhas) -->
+    <link rel="stylesheet" href="https://jsdelivr.net" />
+    <link href="https://googleapis.com" rel="stylesheet">
+    <script src="https://cloudflare.com"></script>
+    <script src="https://cloudflare.com"></script>
+    <script src="https://jsdelivr.net"></script>
+
+    <style>
+        :root { --white: #ffffff; --black: #000000; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #000;
+            color: var(--white);
+            font-family: 'Syncopate', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* HEADER E SLIDER */
+        .main-header { height: 100vh; position: relative; width: 100%; overflow: hidden; }
+        .swiper { height: 100%; width: 100%; filter: grayscale(100%) contrast(1.2); }
+        .swiper-slide { background-size: cover; background-position: center; }
+
+        /* TÍTULO CENTRALIZADO E EFEITO ALTERNADO */
+        .header-overlay {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            z-index: 10; text-align: center; width: 100%; pointer-events: none;
+        }
+
+        h1 { font-size: clamp(3rem, 12vw, 9rem); line-height: 0.85; letter-spacing: -2px; }
+
+        /* Animação Estroboscópica */
+        @keyframes alt1 { 
+            0%, 49% { color: white; -webkit-text-stroke: 1.5px transparent; } 
+            50%, 100% { color: transparent; -webkit-text-stroke: 1.5px white; } 
+        }
+        @keyframes alt2 { 
+            0%, 49% { color: transparent; -webkit-text-stroke: 1.5px white; } 
+            50%, 100% { color: white; -webkit-text-stroke: 1.5px transparent; } 
+        }
+
+        .double { animation: alt1 0.4s infinite; }
+        .dutchess { animation: alt2 0.4s infinite; }
+
+        /* SEÇÃO DOS VINIS */
+        .vinyl-section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 0.7rem; letter-spacing: 8px; margin-bottom: 60px; opacity: 0.5; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; }
+        .card { text-align: center; padding: 20px; }
+        .img-box { background: #080808; padding: 40px; border: 1px solid #111; margin-bottom: 20px; }
+        .img-box img { width: 100%; filter: drop-shadow(0 20px 30px #000); transition: 0.5s; }
+        .card:hover img { transform: scale(1.05) rotate(3deg); }
+
+        .price { display: block; margin: 10px 0; opacity: 0.6; font-size: 0.8rem; }
+        .btn { 
+            background: none; border: 1px solid #fff; color: #fff; padding: 12px 30px; 
+            font-size: 0.6rem; cursor: pointer; transition: 0.3s; 
+        }
+        .btn:hover { background: #fff; color: #000; }
+
+        footer { padding: 40px; text-align: center; font-size: 0.5rem; opacity: 0.3; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image: url('https://unsplash.com')"></div>
+                <div class="swiper-slide" style="background-image: url('https://unsplash.com')"></div>
+            </div>
+        </div>
+        <div class="header-overlay">
+            <h1 class="double">DOUBLE</h1>
+            <h1 class="dutchess">DUTCHESS</h1>
+        </div>
+    </header>
+
+    <main class="vinyl-section">
+        <h2 class="section-title">VINYL COLLECTION</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="img-box"><img src="https://media-amazon.com"></div>
+                <h3>DOUBLE DUTCHESS</h3>
+                <span class="price">$45.00</span>
+                <button class="btn">ADD TO CART</button>
+            </div>
+            <div class="card">
+                <div class="img-box"><img src="https://media-amazon.com"></div>
+                <h3>THE DUTCHESS</h3>
+                <span class="price">$38.00</span>
+                <button class="btn">ADD TO CART</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>&copy; 2026 FERGIE ESTATE | DOUBLE DUTCHESS ERA | BMG MUSIC</footer>
+
+    <script>
+        // Inicia o Slider de fotos
+        new Swiper(".mySwiper", {
+            loop: true,
+            effect: "fade",
+            autoplay: { delay: 3000 },
+            speed: 2000
+        });
+
+        // Faz os vinis aparecerem ao descer a página
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from(".card", {
+            scrollTrigger: ".grid",
+            y: 50,
+            opacity: 0,
+            stagger: 0.3,
+            duration: 1
+        });
+    </script>
+</body>
+</html>
