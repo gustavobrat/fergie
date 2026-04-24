@@ -22,35 +22,35 @@ body {
     opacity: 0.05; pointer-events: none; z-index: 999;
 }
 
-/* HERO SECTION - BACKGROUND ADJUSTED */
+/* HERO - FULL BACKGROUND WITH FADE */
 .hero {
-    height: 100vh; 
-    position: relative; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
-.hero-bg-frame {
+.hero-bg-full {
     position: absolute;
-    width: 85%; /* Espaçamento interno para parecer um quadro */
-    height: 80%;
-    border: 1px solid var(--border);
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     z-index: -1;
-    overflow: hidden;
 }
 
-.hero-bg-frame img {
-    width: 100%;
-    height: 100%;
+.hero-bg-full img {
+    width: 100%; height: 100%;
     object-fit: cover;
-    filter: grayscale(1) brightness(0.4);
+    filter: grayscale(1) brightness(0.5);
 }
 
-.hero-overlay {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));
+/* O EFEITO DE FADE PARA A SEÇÃO ABAIXO */
+.hero-fade-overlay {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 40%; /* O fade começa a 40% do fim da imagem */
+    background: linear-gradient(to bottom, transparent, var(--bg));
 }
 
 .strobe-title {
@@ -68,29 +68,19 @@ body {
     50% { color: #000; -webkit-text-stroke: 1px #fff; text-shadow: none; }
 }
 
-/* WIKI SECTION - SIDEBAR ALIGNMENT */
+/* WIKI SECTION ALIGNMENT */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-.wiki-section { padding: 120px 0; border-bottom: 1px solid var(--border); }
+.wiki-section { padding: 100px 0; border-bottom: 1px solid var(--border); }
 .wiki-grid { display: grid; grid-template-columns: 280px 1fr; gap: 80px; }
 
-.wiki-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 40px; /* Espaço entre os dados e a imagem */
-}
-
+.wiki-sidebar { display: flex; flex-direction: column; gap: 40px; }
 .eyebrow { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); font-weight: 700; margin-bottom: 20px; display: block; }
 
 .stats-list { list-style: none; border-top: 1px solid var(--border); padding-top: 20px; }
 .stats-list li { font-size: 12px; margin-bottom: 15px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
 .stats-list strong { color: #fff; display: block; margin-bottom: 2px; }
 
-.sidebar-visual {
-    border: 1px solid var(--border);
-    padding: 8px;
-    background: #050505;
-}
-
+.sidebar-visual { border: 1px solid var(--border); padding: 8px; background: #050505; }
 .sidebar-visual img { width: 100%; filter: grayscale(1); opacity: 0.8; }
 .sidebar-visual .caption { font-size: 8px; color: #444; margin-top: 10px; display: block; letter-spacing: 1px; }
 
@@ -102,19 +92,13 @@ body {
 
 .long-text p { font-size: 1.15rem; line-height: 1.8; color: #ccc; margin-bottom: 30px; }
 
-/* SHOP */
-.shop { padding: 120px 0; }
+/* SHOP & FOOTER */
+.shop { padding: 100px 0; }
 .shop-title { font-family: 'Syncopate', sans-serif; font-size: 1.5rem; margin-bottom: 60px; text-align: center; }
 .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; }
 .product-img { border: 1px solid var(--border); margin-bottom: 25px; }
 .product-img img { width: 100%; filter: grayscale(1); }
 .buy-btn { width: 100%; padding: 15px; background: transparent; border: 1px solid #333; color: #444; font-size: 10px; font-weight: 700; letter-spacing: 2px; }
 
-/* FOOTER */
-.footer { padding: 60px 0; border-top: 1px solid var(--border); }
-.legal { font-size: 9px; color: #444; text-align: center; width: 100%; }
-
-@media (max-width: 900px) {
-    .wiki-grid { grid-template-columns: 1fr; }
-    .hero-bg-frame { width: 100%; height: 100%; }
-}
+.footer { padding: 60px 0; border-top: 1px solid var(--border); text-align: center; }
+.legal { font-size: 9px; color: #444; letter-spacing: 1px; }
