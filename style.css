@@ -3,70 +3,16 @@
 :root {
     --bg: #000;
     --fg: #fff;
-    --accent: #ff003c; /* Vermelho neon sutil */
+    --accent: #ff003c;
 }
 
-body {
-    background-color: var(--bg);
-    color: var(--fg);
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-}
-
-/* Efeito de Ruído no Fundo */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: url('https://vercel.app');
-    opacity: 0.05;
-    pointer-events: none;
-    z-index: 9999;
-}
+body { background-color: var(--bg); color: var(--fg); margin: 0; font-family: 'Inter', sans-serif; overflow-x: hidden; }
 
 /* HEADER */
-.void-header {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.visual-center {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    mix-blend-mode: hard-light;
-}
-
-.visual-center img {
-    height: 90%;
-    width: auto;
-    filter: grayscale(1) contrast(1.2) brightness(0.7);
-    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-}
-
-.void-title-container {
-    z-index: 10;
-    pointer-events: none;
-}
-
-.word-shifter {
-    font-size: clamp(2rem, 18vw, 15rem);
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-    margin: 0;
-    display: inline-block;
-    animation: strobeColor 0.15s infinite;
-}
+.void-header { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.visual-center { position: absolute; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+.visual-center img { height: 90%; filter: grayscale(1) contrast(1.2) brightness(0.6); }
+.word-shifter { font-size: clamp(2rem, 18vw, 15rem); text-transform: uppercase; display: inline-block; animation: strobeColor 0.15s infinite; z-index: 10; }
 
 @keyframes strobeColor {
     0%, 100% { color: #fff; text-shadow: none; }
@@ -74,118 +20,42 @@ body::before {
     66% { color: #000; -webkit-text-stroke: 1px #fff; }
 }
 
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    font-size: 10px;
-    letter-spacing: 5px;
-    opacity: 0.5;
-}
-
-/* MAIN */
-.site-main {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 5vw;
-}
-
-.editorial-section {
-    padding: 150px 0;
-}
-
-.eyebrow {
-    font-size: 10px;
-    letter-spacing: 8px;
-    color: var(--accent);
-    display: block;
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: clamp(2rem, 8vw, 5rem);
-    font-weight: 900;
-    margin: 0;
-    letter-spacing: -3px;
-    line-height: 0.9;
-}
-
-.wiki-text p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 40px auto;
-    line-height: 1.6;
-    color: #888;
-}
-
-/* SHOP */
-.shop-section {
-    padding: 100px 0;
-}
-
-.shop-nav {
-    font-size: 12px;
-    letter-spacing: 3px;
-    border-bottom: 1px solid #222;
-    padding-bottom: 10px;
-    margin-bottom: 50px;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 60px;
-}
-
-.img-wrapper {
-    background: #050505;
+/* VIDEO SECTION ADJUSTMENTS */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    height: 0;
     overflow: hidden;
-    aspect-ratio: 1/1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 900px;
+    margin: 60px auto 0;
+    border: 1px solid #1a1a1a;
 }
 
-.product-item img {
-    width: 100%;
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    filter: grayscale(1);
+.video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    filter: grayscale(0.5) contrast(1.1); /* Estética Noir no vídeo */
 }
 
-.product-item:hover img {
-    transform: scale(1.1);
-    filter: grayscale(0);
-}
+/* MAIN & SHOP */
+.site-main { max-width: 1400px; margin: 0 auto; padding: 0 5vw; }
+.editorial-section { padding: 150px 0; text-align: center; }
+.eyebrow { font-size: 10px; letter-spacing: 8px; color: var(--accent); display: block; margin-bottom: 20px; }
+h2 { font-size: clamp(2rem, 8vw, 5rem); font-weight: 900; letter-spacing: -3px; line-height: 0.9; margin-bottom: 30px;}
 
-h3 { font-size: 14px; margin: 20px 0 5px; text-transform: uppercase; }
-.price { color: #555; display: block; margin-bottom: 20px; }
+.shop-section { padding: 100px 0; }
+.shop-nav { font-size: 12px; letter-spacing: 3px; border-bottom: 1px solid #222; padding-bottom: 10px; margin-bottom: 50px; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; }
+.img-wrapper { background: #050505; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.product-item img { width: 100%; filter: grayscale(1); transition: 0.5s; }
+.product-item:hover img { transform: scale(1.05); filter: grayscale(0); }
+.order-btn { width: 100%; padding: 15px; background: transparent; border: 1px solid #333; color: #fff; cursor: pointer; transition: 0.3s; font-size: 10px; letter-spacing: 2px; }
+.order-btn:hover { background: #fff; color: #000; }
 
-.order-btn {
-    width: 100%;
-    padding: 15px;
-    background: transparent;
-    border: 1px solid #333;
-    color: #fff;
-    font-size: 10px;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.order-btn:hover {
-    background: #fff;
-    color: #000;
-    border-color: #fff;
-}
-
-/* FOOTER */
-.site-footer {
-    padding: 100px 5vw;
-    border-top: 1px solid #111;
-    margin-top: 100px;
-}
-
-.footer-content p {
-    font-size: 10px;
-    color: #333;
-    margin: 5px 0;
-}
+/* FOOTER CENTRALIZADO */
+.site-footer { padding: 80px 5vw; display: flex; justify-content: center; align-items: center; text-align: center; }
+.footer-content { max-width: 800px; width: 100%; }
+.footer-divider { height: 1px; width: 60px; background: var(--accent); margin: 0 auto 40px; opacity: 0.5; }
+.copyright { font-size: 10px; font-weight: 700; letter-spacing: 4px; color: #fff; text-transform: uppercase; margin-bottom: 15px; }
+.disclaimer { font-size: 9px; line-height: 1.8; letter-spacing: 1px; color: #444; text-transform: uppercase; max-width: 600px; margin: 0 auto; }
