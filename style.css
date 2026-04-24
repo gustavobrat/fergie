@@ -4,204 +4,102 @@
     --bg: #000;
     --fg: #fff;
     --accent: #ff003c;
+    --border: #222;
 }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    background-color: var(--bg);
+    background: var(--bg);
     color: var(--fg);
-    margin: 0;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* HEADER */
-.void-header {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
+/* Film Grain Texture */
+.grain-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://wikimedia.org');
+    opacity: 0.05; pointer-events: none; z-index: 999;
 }
 
-.visual-center {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* HERO SECTION */
+.hero {
+    height: 100vh; position: relative; display: flex; 
+    align-items: center; justify-content: center;
 }
 
-.visual-center img {
-    height: 90%;
-    filter: grayscale(1) contrast(1.2) brightness(0.6);
-    opacity: 0.5;
+.hero-bg { position: absolute; width: 100%; height: 100%; z-index: -1; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) brightness(0.4); }
+
+.strobe-title {
+    font-family: 'Syncopate', sans-serif; font-size: clamp(3rem, 15vw, 10rem);
+    text-transform: uppercase; letter-spacing: -5px; line-height: 0.9;
 }
 
-.word-shifter {
-    font-size: clamp(2rem, 15vw, 12rem); /* Reduzi levemente o max para não quebrar */
-    text-transform: uppercase;
-    display: inline-block;
-    animation: strobeColor 0.15s infinite;
-    z-index: 10;
-    letter-spacing: -5px;
+.hero-sub {
+    font-size: 11px; letter-spacing: 8px; margin-top: 20px; color: var(--accent); font-weight: 700;
 }
 
-@keyframes strobeColor {
-    0%, 100% { color: #fff; text-shadow: none; }
-    33% { color: #fff; text-shadow: 2px 0 var(--accent), -2px 0 #00fff2; }
-    66% { color: #000; -webkit-text-stroke: 1px #fff; }
+/* CONTENT CONTAINER */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+/* WIKI / BIO SECTION */
+.wiki-section { padding: 120px 0; border-bottom: 1px solid var(--border); }
+.wiki-grid { display: grid; grid-template-columns: 250px 1fr; gap: 80px; }
+
+.eyebrow { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); font-weight: 700; margin-bottom: 20px; display: block; }
+
+.stats-list { list-style: none; border-top: 1px solid var(--border); padding-top: 20px; }
+.stats-list li { font-size: 12px; margin-bottom: 15px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+.stats-list strong { color: #fff; display: block; margin-bottom: 2px; }
+
+.editorial-title { 
+    font-family: 'Playfair Display', serif; font-size: 3.5rem; 
+    font-style: italic; margin-bottom: 40px; border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
 }
 
-/* EDITORIAL SECTION */
-.site-main {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 5vw;
+.long-text p {
+    font-size: 1.15rem; line-height: 1.8; color: #ccc; margin-bottom: 30px;
 }
 
-.editorial-section {
-    padding: 150px 0;
-}
+/* VISUAL SPREAD */
+.visual-spread { padding: 80px 0; }
+.main-visual-frame { position: relative; width: 100%; border: 1px solid var(--border); padding: 15px; }
+.main-visual-frame img { width: 100%; filter: grayscale(1); transition: 0.5s; }
+.main-visual-frame:hover img { filter: grayscale(0); }
 
-.editorial-grid {
-    display: flex;
-    align-items: center;
-    gap: 80px;
-    text-align: left;
-}
+.visual-caption { margin-top: 15px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; }
 
-.wiki-container {
-    flex: 1;
-}
+/* SHOP SECTION */
+.shop { padding: 120px 0; background: #050505; }
+.shop-title { font-family: 'Syncopate', sans-serif; font-size: 1.5rem; margin-bottom: 60px; text-align: center; }
 
-.wiki-text p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #888;
-    margin-top: 20px;
-    max-width: 500px;
-}
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; }
+.product-card { transition: 0.4s; }
+.product-img { background: #000; border: 1px solid var(--border); margin-bottom: 25px; overflow: hidden; }
+.product-img img { width: 100%; filter: grayscale(1); transition: 0.6s; }
+.product-card:hover img { transform: scale(1.05); filter: grayscale(0); }
 
-.video-side {
-    flex: 1;
-}
+.product-meta h4 { font-size: 13px; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px; }
+.price { color: #666; font-size: 12px; margin-bottom: 20px; }
 
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* Mantém a proporção 16:9 */
-    height: 0;
-    border: 1px solid #1a1a1a;
-    background: #050505;
-    overflow: hidden;
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Filtro removido para garantir que o vídeo apareça */
-}
-
-/* Responsividade */
-@media (max-width: 900px) {
-    .editorial-grid { flex-direction: column; gap: 40px; text-align: center; }
-    .wiki-text p { margin: 20px auto; }
-}
-
-/* SHOP */
-.shop-section {
-    padding: 100px 0;
-}
-
-.shop-nav {
-    font-size: 12px;
-    letter-spacing: 3px;
-    border-bottom: 1px solid #222;
-    padding-bottom: 10px;
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-}
-
-.img-wrapper {
-    background: #050505;
-    aspect-ratio: 1/1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border: 1px solid #111;
-}
-
-.product-item img {
-    width: 100%;
-    filter: grayscale(1);
-    transition: 0.5s;
-}
-
-.product-item:hover img {
-    transform: scale(1.05);
-    filter: grayscale(0);
-}
-
-.order-btn {
-    width: 100%;
-    padding: 15px;
-    background: transparent;
-    border: 1px solid #333;
-    color: #fff;
-    cursor: pointer;
-    font-size: 10px;
-    letter-spacing: 2px;
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-.order-btn:hover {
-    background: #fff;
-    color: #000;
+.buy-btn {
+    width: 100%; padding: 15px; background: transparent; border: 1px solid #333;
+    color: #444; font-size: 10px; font-weight: 700; letter-spacing: 2px; cursor: not-allowed;
 }
 
 /* FOOTER */
-.site-footer {
-    padding: 100px 5vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border-top: 1px solid #111;
-}
+.footer { padding: 60px 0; border-top: 1px solid var(--border); }
+.footer-content { display: flex; justify-content: space-between; align-items: center; }
+.legal { font-size: 9px; color: #444; letter-spacing: 1px; }
+.footer-links { font-size: 9px; letter-spacing: 2px; color: #888; }
 
-.footer-divider {
-    height: 1px;
-    width: 40px;
-    background: var(--accent);
-    margin: 0 auto 30px;
-    opacity: 0.6;
-}
-
-.copyright {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: #fff;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-}
-
-.disclaimer {
-    font-size: 9px;
-    line-height: 1.8;
-    color: #444;
-    text-transform: uppercase;
-    max-width: 550px;
+/* MOBILE OPTIMIZATION */
+@media (max-width: 800px) {
+    .wiki-grid { grid-template-columns: 1fr; }
+    .editorial-title { font-size: 2.5rem; }
+    .hero { height: 60vh; }
 }
