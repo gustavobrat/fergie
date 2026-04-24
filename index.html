@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header class="void-header">
         <div class="visual-center">
             <img src="https://media-amazon.com" alt="Fergie">
@@ -30,8 +29,9 @@
 
                 <div class="video-side">
                     <div class="video-wrapper">
+                        <!-- LINK CORRIGIDO ABAIXO (Utilizando /embed/) -->
                         <iframe 
-                            src="https://youtu.be/t3Qs0gMDOnY?si=bZuRJWlyfykHZKFy" 
+                            src="https://youtube.com" 
                             title="Double Dutchess" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -87,7 +87,6 @@
         const words = ["FERGIE", "DOUBLE DUTCHESS", "DD", "DOUBLE", "DUTCHESS"];
         const weights = ["900", "100", "800", "300"];
         const textElement = document.getElementById('strobeText');
-
         setInterval(() => {
             textElement.innerText = words[Math.floor(Math.random() * words.length)];
             textElement.style.fontWeight = weights[Math.floor(Math.random() * weights.length)];
