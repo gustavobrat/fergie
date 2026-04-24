@@ -1,246 +1,188 @@
-/* CONFIGURAÇÕES BASEADAS NO SEU STYLE */
+/* RESET & CORE */
+* { box-sizing: border-box; }
 :root {
-    --font-body-family: 'Helvetica Neue LT Std', 'Futura Std', sans-serif;
+    --bg: #000;
+    --fg: #fff;
     --font-heading: 'Arial Black', sans-serif;
-    --page-width: 1200px;
-    --strobe-speed: 0.08s;
+    --font-body: 'Helvetica Neue', Arial, sans-serif;
+    --strobe-speed: 0.05s;
+    --page-max: 1440px;
 }
 
-html, body {
-    background-color: #000;
-    color: #fff;
+body {
+    background-color: var(--bg);
+    color: var(--fg);
     margin: 0;
-    padding: 0;
-    font-family: var(--font-body-family);
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
 }
 
-/* HEADER GIGANTE */
+/* HEADER PROFESSIONAL - EXTREMITIES LOGIC */
 .strobe-header {
+    height: 100vh;
     width: 100%;
-    height: 75vh;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #000;
-    border-bottom: 1px solid #1a1a1a;
+    position: relative;
     overflow: hidden;
+    padding: 0 40px;
 }
 
-.header-image {
+.header-visual-center {
+    width: 40%;
+    height: 80%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header-visual-center img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.1);
+}
+
+.header-text-extremities {
     position: absolute;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.4;
-    filter: grayscale(100%);
-    z-index: 1;
-}
-
-.header-text-container {
-    position: relative;
-    z-index: 2;
-    width: 90%;
-    max-width: var(--page-width);
+    padding: 0 5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Joga os textos para as pontas */
+    z-index: 2;
+    pointer-events: none;
 }
 
-/* EFEITO ESTROBOSCÓPICO SÓ NO TEXTO */
 .strobe-text {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 10vw, 7.5rem);
-    font-weight: 900;
+    font-size: clamp(3rem, 12vw, 10rem);
     margin: 0;
-    color: #000; /* Texto preto */
-    -webkit-text-stroke: 1.5px #fff;
-    letter-spacing: -4px;
-    text-transform: uppercase;
-    animation: strobeEffect var(--strobe-speed) infinite;
+    line-height: 0.8;
+    letter-spacing: -6px;
+    animation: strobeFrames var(--strobe-speed) infinite;
 }
 
-@keyframes strobeEffect {
-    0%, 100% { 
-        background-color: transparent; 
-        -webkit-text-stroke: 1.5px #fff;
+@keyframes strobeFrames {
+    0%, 100% {
+        color: #000;
+        -webkit-text-stroke: 2px #fff;
     }
-    50% { 
-        background-color: #fff; /* Filler que pisca */
-        -webkit-text-stroke: 1.5px transparent;
-        -webkit-background-clip: text;
-        color: transparent;
+    50% {
+        color: #fff;
+        -webkit-text-stroke: 2px transparent;
     }
 }
 
-/* CONTAINER CENTRALIZADOR */
-.main-wrapper {
+/* MAIN LAYOUT */
+.site-main {
+    max-width: var(--page-max);
+    margin: 0 auto;
     width: 100%;
-    max-width: var(--page-width);
-    padding: 0 20px;
-    box-sizing: border-box;
 }
 
 /* WIKI SECTION */
-.wiki-section {
-    padding: 120px 0;
+.editorial-section {
+    padding: 150px 10%;
+    border-top: 1px solid #222;
+}
+
+.wiki-container {
+    max-width: 900px;
+    margin: 0 auto;
     text-align: center;
 }
 
-.label {
-    display: block;
-    font-size: 0.7rem;
+.eyebrow {
+    font-size: 0.75rem;
     letter-spacing: 6px;
-    color: #555;
+    color: #666;
+    display: block;
     margin-bottom: 20px;
 }
 
-.wiki-section h2 {
+h2 {
     font-family: var(--font-heading);
-    font-size: 3rem;
-    margin-bottom: 30px;
+    font-size: clamp(2rem, 5vw, 4rem);
     letter-spacing: -2px;
+    margin: 0 0 40px 0;
 }
 
-.wiki-section p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #999;
-    max-width: 850px;
-    margin: 0 auto;
+.wiki-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #aaa;
 }
 
-/* SHOP SECTION */
+/* SHOP SECTION GRID */
 .shop-section {
-    padding: 80px 0;
-    border-top: 1px solid #1a1a1a;
+    padding: 100px 5%;
+    border-top: 1px solid #222;
 }
 
-.shop-header {
-    margin-bottom: 60px;
+.shop-nav {
     font-size: 0.8rem;
     letter-spacing: 4px;
-    text-align: left;
+    margin-bottom: 60px;
+    color: #444;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas como Madonna.com */
     gap: 80px 40px;
 }
 
-.product-card {
+.product-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
 }
 
-.product-card img {
+.img-wrapper {
     width: 100%;
-    max-width: 300px;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    filter: grayscale(100%);
-    transition: filter 0.4s ease;
-    border: 1px solid #111;/* Importando Variáveis do Usuário */
-:root {
-    --font-body-family: 'Helvetica Neue LT Std', 'Futura Std', sans-serif;
-    --font-heading-family: "Arial Black", sans-serif;
-    --duration-fast: 0.05s;
-    --page-width: 140rem;
-}
-
-html, body {
-    background-color: #000;
-    margin: 0;
-    padding: 0;
-    color: #fff;
-    font-family: var(--font-body-family);
-    overflow-x: hidden;
-}
-
-/* HEADER ESTROBOSCÓPICO */
-.strobe-header {
-    position: relative;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #000;
     overflow: hidden;
-    border-bottom: 1px solid #222;
+    background: #111;
+    border: 1px solid #1a1a1a;
 }
 
-.header-image-container {
-    position: absolute;
+.product-item img {
     width: 100%;
-    height: 100%;
-    z-index: 1;
+    transition: transform 0.6s ease, filter 0.6s ease;
+    filter: grayscale(100%);
+    display: block;
 }
 
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%) brightness(0.4);
-}
-
-.header-text-wrapper {
-    position: relative;
-    z-index: 2;
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.strobe-text {
-    font-family: var(--font-heading-family);
-    font-size: 8rem;
-    font-weight: 900;
-    margin: 0;
-    color: #000; /* Cor preta conforme solicitado */
-    text-transform: uppercase;
-    animation: strobeEffect var(--duration-fast) infinite alternate;
-}
-
-@keyframes strobeEffect {
-    0% {
-
-}
-
-.product-card:hover img {
+.product-item:hover img {
+    transform: scale(1.05);
     filter: grayscale(0%);
 }
 
-.product-card h3 {
-    font-size: 0.9rem;
-    margin: 25px 0 10px;
+h3 {
+    font-size: 0.85rem;
     text-transform: uppercase;
-    font-weight: 700;
-    min-height: 45px;
+    margin: 30px 0 10px 0;
+    letter-spacing: 1px;
+    height: 40px;
+    text-align: center;
 }
 
 .price {
-    color: #444;
-    font-size: 1.1rem;
-    margin-bottom: 25px;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
 }
 
-/* BOTÃO ORDER NOW */
 .order-btn {
     background: transparent;
-    color: #fff;
     border: 1px solid #fff;
-    padding: 14px 40px;
-    font-weight: bold;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
+    color: #fff;
+    padding: 15px 40px;
+    font-weight: 700;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: 0.3s;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
 }
 
 .order-btn:hover {
@@ -248,11 +190,30 @@ html, body {
     color: #000;
 }
 
-footer {
-    padding: 80px 0;
+/* FOOTER REFINED */
+.site-footer {
+    padding: 100px 5%;
     text-align: center;
+    border-top: 1px solid #222;
+    margin-top: 100px;
+}
+
+.footer-content p {
     font-size: 0.7rem;
-    color: #333;
-    letter-spacing: 3px;
-    border-top: 1px solid #1a1a1a;
+    letter-spacing: 2px;
+    color: #444;
+    margin: 10px 0;
+}
+
+.disclaimer {
+    max-width: 600px;
+    margin: 0 auto !important;
+    opacity: 0.6;
+    line-height: 1.5;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .header-text-extremities { flex-direction: column; text-align: center; justify-content: center; gap: 20px; }
 }
