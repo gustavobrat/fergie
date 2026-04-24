@@ -7,18 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="grain-overlay"></div>
 
     <header class="hero">
-        <!-- BACKGROUND COM 3 IMAGENS PARA O STROBE -->
         <div class="hero-bg-full" id="heroBg">
             <img src="encartedd1.jpg" class="active" alt="Visual 1">
             <img src="encartedd2.jpg" alt="Visual 2">
             <img src="encartedd3.jpg" alt="Visual 3">
             <div class="hero-fade-overlay"></div>
         </div>
-        
         <div class="hero-content">
             <h1 class="strobe-title" id="strobeText">FERGIE</h1>
         </div>
@@ -38,20 +35,17 @@
                                 <li><strong>Creative Dir:</strong> Giovanni Bianco</li>
                             </ul>
                         </div>
-                        
                         <div class="sidebar-visual">
                             <img src="dd1.jpg" alt="Editorial Still">
                             <span class="caption">ARCHIVE_STILL_01.JPG</span>
                         </div>
                     </aside>
-                    
+
                     <div class="wiki-main-content">
                         <h2 class="editorial-title">THE VISUAL EXPERIENCE</h2>
                         <div class="long-text">
                             <p>After a decade of anticipation since her solo debut <em>The Dutchess</em> (2006), Fergie returned with <strong>Double Dutchess</strong>, a project that transcends the definition of a traditional album. Described as a "total visual experience," the record was launched alongside a full-length feature film titled <em>"Double Dutchess: Seeing Double."</em></p>
-                            
                             <p>The project explores the artist's duality—the conflict between the global public figure and the vulnerability of the woman behind the myth. Under the creative direction of <strong>Giovanni Bianco</strong>, the album's aesthetic dives into high-contrast black and white, avant-garde cinema references, and high-fashion noir grit.</p>
-                            
                             <p>Musically, the archive catalogs a fusion of genres that defined Fergie’s career: from the aggressive trap of "Hungry" to confessional ballads like "A Little Work." Each track serves as a visual chapter, turning the listening experience into a fragmented cinematic narrative focused on empowerment, resilience, and artistic rebirth.</p>
                         </div>
                     </div>
@@ -73,7 +67,6 @@
                             <button class="buy-btn">SOLD OUT</button>
                         </div>
                     </article>
-
                     <article class="product-card">
                         <div class="product-img">
                             <img src="ddvinyl.jpg" alt="Vinyl">
@@ -97,21 +90,18 @@
 
     <script>
         const words = ["FERGIE", "DOUBLE DUTCHESS", "DOUBLE", "DD", "DUTCHESS"];
-        const weights = ["100", "400", "900"];
         const title = document.getElementById('strobeText');
         const bgImages = document.querySelectorAll('#heroBg img');
 
         setInterval(() => {
-            // Efeito de Texto
+            // Efeito de Texto (Peso fixo para Medium)
             title.innerText = words[Math.floor(Math.random() * words.length)];
-            title.style.fontWeight = weights[Math.floor(Math.random() * weights.length)];
             const spacing = Math.floor(Math.random() * (5 - (-15)) + (-15));
             title.style.letterSpacing = spacing + "px";
 
             // Efeito de Background (Alterna as 3 imagens)
             bgImages.forEach(img => img.classList.remove('active'));
             bgImages[Math.floor(Math.random() * bgImages.length)].classList.add('active');
-            
         }, 50); 
     </script>
 </body>
