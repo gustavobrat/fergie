@@ -3,86 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FERGIE | DOUBLE DUTCHESS</title>
+    <title>FERGIE | DOUBLE DUTCHESS OFFICIAL EXPERIENCE</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- HEADER GIGANTE ESTROBOSCÓPICO -->
+    <!-- HEADER EDITORIAL -->
     <header class="strobe-header">
-        <img src="https://tcdn.com.br" class="header-image" alt="Fergie Visual">
-        <div class="header-text-container">
+        <div class="header-visual-center">
+            <!-- Espaço central para a foto dela -->
+            <img src="https://tcdn.com.br" alt="Fergie Visual">
+        </div>
+        
+        <div class="header-text-extremities">
             <h1 class="strobe-text">FERGIE</h1>
             <h1 class="strobe-text">DOUBLE DUTCHESS</h1>
         </div>
     </header>
 
-    <div class="main-wrapper">
-        
-        <!-- PÁGINA EXPLICATIVA / WIKI -->
-        <section class="wiki-section">
-            <span class="label">EXHIBITION 02</span>
-            <h2>THE VISUAL EXPERIENCE</h2>
-            <p>Double Dutchess is the long-awaited second studio album by Fergie, released in 2017. Conceived as a multimodal art piece, it features a complete visual film where music meets high-fashion noir. A bold statement of independence and artistic evolution.</p>
-        </section>
-
-        <!-- SHOP SECTION -->
-        <section class="shop-section">
-            <div class="shop-header">COLLECTION / PHYSICALS</div>
-            
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://media-amazon.com" alt="The Dutchess CD">
-                    <h3>The Dutchess [CD]</h3>
-                    <div class="price">$13.98</div>
-                    <button class="order-btn" onclick="alertDisclaimer()">ORDER NOW</button>
-                </div>
-
-                <div class="product-card">
-                    <img src="https://media-amazon.com" alt="The Dutchess Deluxe">
-                    <h3>The Dutchess (Deluxe) [CD]</h3>
-                    <div class="price">$16.99</div>
-                    <button class="order-btn" onclick="alertDisclaimer()">ORDER NOW</button>
-                </div>
-
-                <div class="product-card">
-                    <img src="https://media-amazon.com" alt="The Dutchess Vinyl">
-                    <h3>The Dutchess [Vinyl]</h3>
-                    <div class="price">$32.00</div>
-                    <button class="order-btn" onclick="alertDisclaimer()">ORDER NOW</button>
-                </div>
-
-                <div class="product-card">
-                    <img src="https://media-amazon.com" alt="Double Dutchess CD">
-                    <h3>Double Dutchess [CD]</h3>
-                    <div class="price">$14.99</div>
-                    <button class="order-btn" onclick="alertDisclaimer()">ORDER NOW</button>
-                </div>
-
-                <div class="product-card">
-                    <img src="https://media-amazon.com" alt="Double Dutchess Target">
-                    <h3>Double Dutchess (Target Exclusive Edition) [CD]</h3>
-                    <div class="price">$18.50</div>
-                    <button class="order-btn" onclick="alertDisclaimer()">ORDER NOW</button>
-                </div>
-
-                <div class="product-card">
-                    <img src="https://media-amazon.com" alt="Double Dutchess Vinyl">
-                    <h3>Double Dutchess [Vinyl]</h3>
-                    <div class="price">$35.00</div>
-                    <button class="order-btn" onclick="alertDisclaimer()">ORDER NOW</button>
+    <main class="site-main">
+        <!-- SEÇÃO WIKI / ARCHIVE -->
+        <section class="editorial-section">
+            <div class="wiki-container">
+                <span class="eyebrow">THE VISUAL EXPERIENCE / ARCHIVE 02</span>
+                <h2>DOUBLE DUTCHESS</h2>
+                <div class="wiki-text">
+                    <p>Released in 2017, Double Dutchess is the definitive visual statement from Fergie. A multi-platform film project that explores the duality of fame, womanhood, and creative independence. Directed by Bruno Ilogti under the creative vision of Giovanni Bianco, this era redefined the boundaries between pop music and high-fashion noir cinematography.</p>
                 </div>
             </div>
         </section>
 
-        <footer>
-            © 2026 DUTCHESS MUSIC / BMG RIGHTS MANAGEMENT. ALL RIGHTS RESERVED.
-        </footer>
-    </div>
+        <!-- SEÇÃO SHOP -->
+        <section class="shop-section">
+            <div class="shop-nav">
+                <span>SHOP / PHYSICAL RELEASES</span>
+            </div>
+
+            <div class="product-grid">
+                <!-- Item 01 -->
+                <article class="product-item">
+                    <div class="img-wrapper"><img src="https://media-amazon.com" alt="The Dutchess"></div>
+                    <h3>The Dutchess [CD]</h3>
+                    <span class="price">$13.98</span>
+                    <button class="order-btn" onclick="triggerAlert()">ORDER NOW</button>
+                </article>
+
+                <!-- Item 02 -->
+                <article class="product-item">
+                    <div class="img-wrapper"><img src="https://media-amazon.com" alt="Deluxe"></div>
+                    <h3>The Dutchess (Deluxe) [CD]</h3>
+                    <span class="price">$16.99</span>
+                    <button class="order-btn" onclick="triggerAlert()">ORDER NOW</button>
+                </article>
+
+                <!-- Item 03 -->
+                <article class="product-item">
+                    <div class="img-wrapper"><img src="https://media-amazon.com" alt="Vinyl 1"></div>
+                    <h3>The Dutchess [Vinyl]</h3>
+                    <span class="price">$32.00</span>
+                    <button class="order-btn" onclick="triggerAlert()">ORDER NOW</button>
+                </article>
+
+                <!-- Item 04 -->
+                <article class="product-item">
+                    <div class="img-wrapper"><img src="https://media-amazon.com" alt="Double CD"></div>
+                    <h3>Double Dutchess [CD]</h3>
+                    <span class="price">$14.99</span>
+                    <button class="order-btn" onclick="triggerAlert()">ORDER NOW</button>
+                </article>
+
+                <!-- Item 05 -->
+                <article class="product-item">
+                    <div class="img-wrapper"><img src="https://media-amazon.com" alt="Target Edition"></div>
+                    <h3>Double Dutchess (Target Exclusive Edition) [CD]</h3>
+                    <span class="price">$18.50</span>
+                    <button class="order-btn" onclick="triggerAlert()">ORDER NOW</button>
+                </article>
+
+                <!-- Item 06 -->
+                <article class="product-item">
+                    <div class="img-wrapper"><img src="https://media-amazon.com" alt="Vinyl 2"></div>
+                    <h3>Double Dutchess [Vinyl]</h3>
+                    <span class="price">$35.00</span>
+                    <button class="order-btn" onclick="triggerAlert()">ORDER NOW</button>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>DESIGNED BY FAN EXPERIENCE. ALL RIGHTS RESERVED TO BMG / DUTCHESS MUSIC.</p>
+            <p class="disclaimer">DISCLAIMER: THIS IS A NON-PROFIT FANMADE WEBSITE. WE HAVE NO OFFICIAL AFFILIATION WITH FERGIE, DUTCHESS MUSIC, OR HER MANAGEMENT TEAM.</p>
+        </div>
+    </footer>
 
     <script>
-        function alertDisclaimer() {
-            alert("This product is currently unavailable in your region.");
+        function triggerAlert() {
+            alert("NOTICE: This product is currently unavailable for purchase in your region.");
         }
     </script>
 </body>
