@@ -15,14 +15,13 @@
             <img src="https://media-amazon.com" alt="Fergie Visual">
         </div>
         <div class="hero-content">
+            <!-- Apenas o título com ID para o efeito -->
             <h1 class="strobe-title" id="strobeText">FERGIE</h1>
-            <p class="hero-sub">OFFICIAL VISUAL ARCHIVE // MMXXVI</p>
         </div>
     </header>
 
     <main class="content-wrapper">
         
-        <!-- WIKI / BIOGRAPHY SECTION -->
         <section class="wiki-section">
             <div class="container">
                 <div class="wiki-grid">
@@ -41,16 +40,15 @@
                         <div class="long-text">
                             <p>After a decade of anticipation since her solo debut <em>The Dutchess</em> (2006), Fergie returned with <strong>Double Dutchess</strong>, a project that transcends the definition of a traditional album. Described as a "total visual experience," the record was launched alongside a full-length feature film titled <em>"Double Dutchess: Seeing Double."</em></p>
                             
-                            <p>The project explores the artist's duality—the conflict between the global public figure and the vulnerability of the woman behind the myth. Under the creative direction of <strong>Giovanni Bianco</strong> (renowned for his iconic work with Madonna), the album's aesthetic dives into high-contrast black and white, avant-garde cinema references, and high-fashion noir grit.</p>
+                            <p>The project explores the artist's duality—the conflict between the global public figure and the vulnerability of the woman behind the myth. Under the creative direction of <strong>Giovanni Bianco</strong>, the album's aesthetic dives into high-contrast black and white, avant-garde cinema references, and high-fashion noir grit.</p>
                             
-                            <p>Musically, the archive catalogs a fusion of genres that defined Fergie’s career: from the aggressive trap of "Hungry" (featuring Rick Ross) to confessional ballads like "A Little Work." Each track serves as a visual chapter, turning the listening experience into a fragmented cinematic narrative focused on empowerment, resilience, and artistic rebirth.</p>
+                            <p>Musically, the archive catalogs a fusion of genres that defined Fergie’s career: from the aggressive trap of "Hungry" (featuring Rick Ross) to confessional ballads like "A Little Work." Each track serves as a visual chapter, turning the listening experience into a fragmented cinematic narrative focused on empowerment and artistic rebirth.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- VISUAL SPREAD (IMAGE REPLACING VIDEO) -->
         <section class="visual-spread">
             <div class="container">
                 <div class="main-visual-frame">
@@ -62,7 +60,6 @@
             </div>
         </section>
 
-        <!-- SHOP / DISCOGRAPHY -->
         <section class="shop">
             <div class="container">
                 <h3 class="shop-title">PHYSICAL EDITIONS</h3>
@@ -105,12 +102,19 @@
     </footer>
 
     <script>
-        const words = ["FERGIE", "DUTCHESS", "DOUBLE", "SEEING DOUBLE"];
+        const words = ["FERGIE", "DOUBLE DUTCHESS", "DOUBLE", "DD", "DUTCHESS"];
+        const weights = ["100", "400", "900"];
         const title = document.getElementById('strobeText');
+        
         setInterval(() => {
+            // Alterna Texto
             title.innerText = words[Math.floor(Math.random() * words.length)];
-            title.style.letterSpacing = Math.floor(Math.random() * (5 - (-10)) + (-10)) + "px";
-        }, 130);
+            // Alterna Peso
+            title.style.fontWeight = weights[Math.floor(Math.random() * weights.length)];
+            // Alterna Espaçamento (Frenético)
+            const spacing = Math.floor(Math.random() * (5 - (-15)) + (-15));
+            title.style.letterSpacing = spacing + "px";
+        }, 50); 
     </script>
 </body>
 </html>
