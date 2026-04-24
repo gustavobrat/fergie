@@ -15,8 +15,11 @@
             <img src="https://media-amazon.com" alt="Fergie Visual">
         </div>
         <div class="hero-content">
-            <!-- Apenas o título com ID para o efeito -->
             <h1 class="strobe-title" id="strobeText">FERGIE</h1>
+            <!-- ESPAÇO PARA IMAGEM NO HEADER -->
+            <div class="header-visual-box">
+                <img src="https://media-amazon.com" alt="Header Sub-Visual">
+            </div>
         </div>
     </header>
 
@@ -36,13 +39,18 @@
                     </div>
                     
                     <div class="wiki-main-content">
-                        <h2 class="editorial-title">THE VISUAL EXPERIENCE</h2>
+                        <!-- ESPAÇO PARA IMAGEM PERTO DO TÍTULO EDITORIAL -->
+                        <div class="editorial-header">
+                            <h2 class="editorial-title">THE VISUAL EXPERIENCE</h2>
+                            <div class="editorial-mini-img">
+                                <img src="https://media-amazon.com" alt="Editorial Still">
+                            </div>
+                        </div>
+
                         <div class="long-text">
                             <p>After a decade of anticipation since her solo debut <em>The Dutchess</em> (2006), Fergie returned with <strong>Double Dutchess</strong>, a project that transcends the definition of a traditional album. Described as a "total visual experience," the record was launched alongside a full-length feature film titled <em>"Double Dutchess: Seeing Double."</em></p>
                             
                             <p>The project explores the artist's duality—the conflict between the global public figure and the vulnerability of the woman behind the myth. Under the creative direction of <strong>Giovanni Bianco</strong>, the album's aesthetic dives into high-contrast black and white, avant-garde cinema references, and high-fashion noir grit.</p>
-                            
-                            <p>Musically, the archive catalogs a fusion of genres that defined Fergie’s career: from the aggressive trap of "Hungry" (featuring Rick Ross) to confessional ballads like "A Little Work." Each track serves as a visual chapter, turning the listening experience into a fragmented cinematic narrative focused on empowerment and artistic rebirth.</p>
                         </div>
                     </div>
                 </div>
@@ -102,16 +110,13 @@
     </footer>
 
     <script>
-        const words = ["FERGIE", "DOUBLE DUTCHESS", "DOUBLE", "DD", "DUTCHESS"];
+        const words = ["FERGIE", "DUTCHESS", "DOUBLE", "SEEING DOUBLE", "DD", "MILF$", "HUNGRY"];
         const weights = ["100", "400", "900"];
         const title = document.getElementById('strobeText');
         
         setInterval(() => {
-            // Alterna Texto
             title.innerText = words[Math.floor(Math.random() * words.length)];
-            // Alterna Peso
             title.style.fontWeight = weights[Math.floor(Math.random() * weights.length)];
-            // Alterna Espaçamento (Frenético)
             const spacing = Math.floor(Math.random() * (5 - (-15)) + (-15));
             title.style.letterSpacing = spacing + "px";
         }, 50); 
