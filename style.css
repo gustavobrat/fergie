@@ -45,7 +45,7 @@ body {
     top: 0; left: 0;
     width: 100%; height: 100%; 
     object-fit: cover; 
-    filter: grayscale(1) brightness(1.00); 
+    filter: grayscale(1) brightness(0.96); 
     opacity: 0;
     transition: none; /* Corte seco para efeito estroboscópico */
 } 
@@ -123,7 +123,7 @@ body {
     background: #050505; 
 } 
 
-.sidebar-visual img { width: 100%; filter: grayscale(1); opacity: 0.8; } 
+.sidebar-visual img { width: 100%; filter: grayscale(1); opacity: 0.96; } 
 
 .sidebar-visual .caption { 
     font-size: 8px; 
