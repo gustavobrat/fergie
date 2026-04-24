@@ -16,29 +16,32 @@
         <div class="void-title-container">
             <h1 class="word-shifter" id="strobeText">FERGIE</h1>
         </div>
-        <div class="scroll-indicator">SCROLL TO EXPERIENCE</div>
+        <!-- Scroll indicator removido -->
     </header>
 
     <main class="site-main">
-        <!-- VISUAL EXPERIENCE COM VÍDEO -->
         <section class="editorial-section">
-            <div class="wiki-container">
-                <span class="eyebrow">ARCHIVE / VISUAL EXPERIENCE</span>
-                <h2>DOUBLE DUTCHESS</h2>
-                <div class="wiki-text">
-                    <p>"Double Dutchess" is more than a second studio album; it is a full-scale multimedia experience titled "Seeing Double." Conceived by Fergie alongside director Bruno Ilogti and creative visionary Giovanni Bianco, the project functions as a non-linear visual album where every track is brought to life through cinematic storytelling. Heavily influenced by noir aesthetics, high-fashion editorials, and experimental "strobe" effects, the experience explores the duality of the artist’s identity—balancing the grit of independent pop culture with the glamour of global superstardom. It is a journey through fame, motherhood, and empowerment, all captured through a high-contrast, avant-garde lens that redefines the traditional pop record into an immersive archive of visual art.</p>
+            <div class="editorial-grid">
+                <!-- LADO ESQUERDO: TEXTO -->
+                <div class="wiki-container">
+                    <span class="eyebrow">ARCHIVE / VISUAL EXPERIENCE</span>
+                    <h2>DOUBLE DUTCHESS</h2>
+                    <div class="wiki-text">
+                        <p>"Double Dutchess" is a multimedia experience titled "Seeing Double." Conceived by Fergie, Bruno Ilogti, and Giovanni Bianco, this non-linear visual album explores the duality of identity—balancing independent grit with global stardom through an avant-garde lens.</p>
+                    </div>
                 </div>
 
-                <!-- CONTAINER DO VÍDEO -->
-                <div class="video-wrapper">
-                    <iframe 
-                        src="https://youtube.com" 
-                        title="Double Dutchess Experience" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen>
-                    </iframe>
+                <!-- LADO DIREITO: VÍDEO MENOR -->
+                <div class="video-side">
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://youtube.com" 
+                            title="Double Dutchess" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </section>
@@ -52,14 +55,12 @@
                     <span class="price">$14.99</span>
                     <button class="order-btn" onclick="alert('Unavailable')">ORDER NOW</button>
                 </article>
-
                 <article class="product-item">
                     <div class="img-wrapper"><img src="https://media-amazon.com" alt="LP"></div>
                     <h3>Double Dutchess [2LP]</h3>
                     <span class="price">$34.99</span>
                     <button class="order-btn" onclick="alert('Unavailable')">ORDER NOW</button>
                 </article>
-
                 <article class="product-item">
                     <div class="img-wrapper"><img src="https://media-amazon.com" alt="Target"></div>
                     <h3>Target Exclusive</h3>
@@ -82,7 +83,6 @@
         const words = ["FERGIE", "DOUBLE DUTCHESS", "DD", "DOUBLE", "DUTCHESS"];
         const weights = ["900", "100", "800", "300"];
         const textElement = document.getElementById('strobeText');
-
         setInterval(() => {
             textElement.innerText = words[Math.floor(Math.random() * words.length)];
             textElement.style.fontWeight = weights[Math.floor(Math.random() * weights.length)];
