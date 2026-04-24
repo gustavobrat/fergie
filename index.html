@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +10,14 @@
 
     <header class="void-header">
         <div class="visual-center">
-            <img src="https://tcdn.com.br" alt="Fergie">
+            <!-- Coloque o link real da foto aqui -->
+            <img src="https://media-amazon.com" alt="Fergie Double Dutchess">
         </div>
         
-        <!-- O container do título frenético -->
         <div class="void-title-container">
-            <div class="word-shifter" id="strobeText">FERGIE</div>
+            <h1 class="word-shifter" id="strobeText">FERGIE</h1>
         </div>
+        <div class="scroll-indicator">SCROLL TO EXPERIENCE</div>
     </header>
 
     <main class="site-main">
@@ -30,18 +31,35 @@
             </div>
         </section>
 
-        <!-- SEÇÃO SHOP MANTIDA -->
         <section class="shop-section">
             <div class="shop-nav">PHYSICAL RELEASES</div>
             <div class="product-grid">
-                <!-- Seus produtos aqui... -->
                 <article class="product-item">
-                    <div class="img-wrapper"><img src="https://media-amazon.com"></div>
+                    <div class="img-wrapper">
+                        <img src="https://media-amazon.com" alt="Double Dutchess CD">
+                    </div>
                     <h3>Double Dutchess [CD]</h3>
                     <span class="price">$14.99</span>
                     <button class="order-btn" onclick="alert('Unavailable')">ORDER NOW</button>
                 </article>
-                <!-- Repetir conforme os itens anteriores -->
+
+                <article class="product-item">
+                    <div class="img-wrapper">
+                        <img src="https://media-amazon.com" alt="Double Dutchess Vinyl">
+                    </div>
+                    <h3>Double Dutchess [2LP]</h3>
+                    <span class="price">$34.99</span>
+                    <button class="order-btn" onclick="alert('Unavailable')">ORDER NOW</button>
+                </article>
+
+                <article class="product-item">
+                    <div class="img-wrapper">
+                        <img src="https://media-amazon.com" alt="Target Edition">
+                    </div>
+                    <h3>Target Exclusive</h3>
+                    <span class="price">$17.99</span>
+                    <button class="order-btn" onclick="alert('Unavailable')">ORDER NOW</button>
+                </article>
             </div>
         </section>
     </main>
@@ -55,26 +73,15 @@
 
     <script>
         const words = ["FERGIE", "DOUBLE DUTCHESS", "DD", "DOUBLE", "DUTCHESS"];
-        const fonts = [
-            "'Inter', -apple-system, sans-serif", 
-            "system-ui, -apple-system, sans-serif",
-            "'Helvetica Neue', Helvetica, sans-serif",
-            "Arial, sans-serif"
-        ];
-        const weights = ["900", "100", "400", "800", "300"];
-        
+        const weights = ["900", "100", "800", "300"];
         const textElement = document.getElementById('strobeText');
 
-        // Lógica frenética estilo Enter the Void
         setInterval(() => {
             textElement.innerText = words[Math.floor(Math.random() * words.length)];
-            textElement.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
             textElement.style.fontWeight = weights[Math.floor(Math.random() * weights.length)];
-            
-            // Randomiza a escala para o efeito "agressivo"
-            const scale = Math.random() * (1.2 - 0.8) + 0.8;
+            const scale = Math.random() * (1.1 - 0.9) + 0.9;
             textElement.style.transform = `scale(${scale})`;
-        }, 60); // 60ms = Velocidade frenética
+        }, 80); 
     </script>
 </body>
 </html>
