@@ -22,31 +22,44 @@ body {
     opacity: 0.05; pointer-events: none; z-index: 999;
 }
 
-/* HERO SECTION AJUSTADO */
+/* HERO SECTION - BACKGROUND ADJUSTED */
 .hero {
-    height: 100vh; position: relative; display: flex; 
-    align-items: center; justify-content: center; overflow: hidden;
+    height: 100vh; 
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden;
 }
 
-.hero-bg { position: absolute; width: 100%; height: 100%; z-index: -1; }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) brightness(0.3); }
-
-.hero-content {
-    display: flex; flex-direction: column; align-items: center; gap: 40px;
+.hero-bg-frame {
+    position: absolute;
+    width: 85%; /* Espaçamento interno para parecer um quadro */
+    height: 80%;
+    border: 1px solid var(--border);
+    z-index: -1;
+    overflow: hidden;
 }
 
-.header-visual-box {
-    width: 300px; height: 180px; border: 1px solid var(--border);
-    padding: 10px; background: rgba(255,255,255,0.02);
+.hero-bg-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) brightness(0.4);
 }
 
-.header-visual-box img {
-    width: 100%; height: 100%; object-fit: cover; filter: grayscale(1);
+.hero-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));
 }
 
 .strobe-title {
-    font-family: 'Syncopate', sans-serif; font-size: clamp(3rem, 15vw, 10rem);
-    text-transform: uppercase; line-height: 0.9; text-align: center;
+    font-family: 'Syncopate', sans-serif; 
+    font-size: clamp(3rem, 15vw, 12rem);
+    text-transform: uppercase; 
+    line-height: 0.9;
+    text-align: center;
+    z-index: 10;
     animation: strobeFlash 0.1s steps(2, start) infinite;
 }
 
@@ -55,47 +68,53 @@ body {
     50% { color: #000; -webkit-text-stroke: 1px #fff; text-shadow: none; }
 }
 
-/* WIKI / EDITORIAL AJUSTADO */
+/* WIKI SECTION - SIDEBAR ALIGNMENT */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 .wiki-section { padding: 120px 0; border-bottom: 1px solid var(--border); }
-.wiki-grid { display: grid; grid-template-columns: 250px 1fr; gap: 80px; }
+.wiki-grid { display: grid; grid-template-columns: 280px 1fr; gap: 80px; }
 
-.editorial-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    border-bottom: 1px solid var(--border); margin-bottom: 40px; padding-bottom: 20px;
+.wiki-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espaço entre os dados e a imagem */
 }
 
-.editorial-title { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-style: italic; border: none; margin: 0; }
-
-.editorial-mini-img { width: 150px; height: 90px; border: 1px solid var(--border); overflow: hidden; }
-.editorial-mini-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); opacity: 0.7; }
+.eyebrow { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); font-weight: 700; margin-bottom: 20px; display: block; }
 
 .stats-list { list-style: none; border-top: 1px solid var(--border); padding-top: 20px; }
 .stats-list li { font-size: 12px; margin-bottom: 15px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
 .stats-list strong { color: #fff; display: block; margin-bottom: 2px; }
 
+.sidebar-visual {
+    border: 1px solid var(--border);
+    padding: 8px;
+    background: #050505;
+}
+
+.sidebar-visual img { width: 100%; filter: grayscale(1); opacity: 0.8; }
+.sidebar-visual .caption { font-size: 8px; color: #444; margin-top: 10px; display: block; letter-spacing: 1px; }
+
+.editorial-title { 
+    font-family: 'Playfair Display', serif; font-size: 3.5rem; 
+    font-style: italic; margin-bottom: 40px; border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+}
+
 .long-text p { font-size: 1.15rem; line-height: 1.8; color: #ccc; margin-bottom: 30px; }
 
-/* VISUAL SPREAD */
-.visual-spread { padding: 80px 0; }
-.main-visual-frame { position: relative; width: 100%; border: 1px solid var(--border); padding: 15px; }
-.main-visual-frame img { width: 100%; filter: grayscale(1); }
-.visual-caption { margin-top: 15px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #555; }
-
 /* SHOP */
-.shop { padding: 120px 0; background: #050505; }
+.shop { padding: 120px 0; }
 .shop-title { font-family: 'Syncopate', sans-serif; font-size: 1.5rem; margin-bottom: 60px; text-align: center; }
 .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; }
-.product-img { border: 1px solid var(--border); margin-bottom: 25px; overflow: hidden; }
+.product-img { border: 1px solid var(--border); margin-bottom: 25px; }
 .product-img img { width: 100%; filter: grayscale(1); }
-.buy-btn { width: 100%; padding: 15px; background: transparent; border: 1px solid #333; color: #444; font-size: 10px; font-weight: 700; letter-spacing: 2px; cursor: not-allowed; }
+.buy-btn { width: 100%; padding: 15px; background: transparent; border: 1px solid #333; color: #444; font-size: 10px; font-weight: 700; letter-spacing: 2px; }
 
 /* FOOTER */
 .footer { padding: 60px 0; border-top: 1px solid var(--border); }
-.footer-content { display: flex; justify-content: space-between; align-items: center; }
-.legal { font-size: 9px; color: #444; letter-spacing: 1px; }
+.legal { font-size: 9px; color: #444; text-align: center; width: 100%; }
 
 @media (max-width: 900px) {
     .wiki-grid { grid-template-columns: 1fr; }
-    .editorial-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .hero-bg-frame { width: 100%; height: 100%; }
 }
