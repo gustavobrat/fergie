@@ -11,9 +11,11 @@
     <div class="grain-overlay"></div>
 
     <header class="hero">
-        <!-- BACKGROUND FULL COM FADE -->
-        <div class="hero-bg-full">
-            <img src="encartedd1.jpg" alt="Fergie Visual Background">
+        <!-- BACKGROUND COM 3 IMAGENS PARA O STROBE -->
+        <div class="hero-bg-full" id="heroBg">
+            <img src="encartedd1.jpg" class="active" alt="Visual 1">
+            <img src="encartedd2.jpg" alt="Visual 2">
+            <img src="encartedd3.jpg" alt="Visual 3">
             <div class="hero-fade-overlay"></div>
         </div>
         
@@ -71,6 +73,7 @@
                             <button class="buy-btn">SOLD OUT</button>
                         </div>
                     </article>
+
                     <article class="product-card">
                         <div class="product-img">
                             <img src="https://media-amazon.com" alt="Vinyl">
@@ -96,12 +99,19 @@
         const words = ["FERGIE", "DOUBLE DUTCHESS", "DOUBLE", "DD", "DUTCHESS"];
         const weights = ["100", "400", "900"];
         const title = document.getElementById('strobeText');
-        
+        const bgImages = document.querySelectorAll('#heroBg img');
+
         setInterval(() => {
+            // Efeito de Texto
             title.innerText = words[Math.floor(Math.random() * words.length)];
             title.style.fontWeight = weights[Math.floor(Math.random() * weights.length)];
             const spacing = Math.floor(Math.random() * (5 - (-15)) + (-15));
             title.style.letterSpacing = spacing + "px";
+
+            // Efeito de Background (Alterna as 3 imagens)
+            bgImages.forEach(img => img.classList.remove('active'));
+            bgImages[Math.floor(Math.random() * bgImages.length)].classList.add('active');
+            
         }, 50); 
     </script>
 </body>
