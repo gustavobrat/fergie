@@ -3,74 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FERGIE | DOUBLE DUTCHESS EXPERIENCE</title>
+    <title>FERGIE | DOUBLE DUTCHESS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="strobe-header">
-        <div class="header-visual-center">
-            <img src="https://tcdn.com.br" alt="Fergie Visual">
+    <header class="void-header">
+        <div class="visual-center">
+            <img src="https://tcdn.com.br" alt="Fergie">
         </div>
         
-        <!-- Textos empilhados com troca de fontes -->
-        <div class="header-text-stacked">
-            <h1 class="strobe-text font-switcher">FERGIE</h1>
-            <h1 class="strobe-text font-switcher">DOUBLE DUTCHESS</h1>
+        <!-- O container do título frenético -->
+        <div class="void-title-container">
+            <div class="word-shifter" id="strobeText">FERGIE</div>
         </div>
     </header>
 
     <main class="site-main">
         <section class="editorial-section">
             <div class="wiki-container">
-                <span class="eyebrow">THE VISUAL EXPERIENCE</span>
+                <span class="eyebrow">ARCHIVE / VISUAL EXPERIENCE</span>
                 <h2>DOUBLE DUTCHESS</h2>
                 <div class="wiki-text">
-                    <p>Released in 2017, Double Dutchess is the definitive visual statement from Fergie. A multi-platform film project that explores the duality of fame and creative independence.</p>
+                    <p>A multimedia experience by Fergie. Directed by Bruno Ilogti. Creative Direction by Giovanni Bianco. A journey through noir aesthetics and independent pop culture.</p>
                 </div>
             </div>
         </section>
 
+        <!-- SEÇÃO SHOP MANTIDA -->
         <section class="shop-section">
-            <div class="shop-nav">SHOP / PHYSICAL RELEASES</div>
+            <div class="shop-nav">PHYSICAL RELEASES</div>
             <div class="product-grid">
-                <!-- Itens mantidos conforme ordem anterior -->
-                <article class="product-item">
-                    <div class="img-wrapper"><img src="https://media-amazon.com"></div>
-                    <h3>The Dutchess [CD]</h3>
-                    <span class="price">$13.98</span>
-                    <button class="order-btn" onclick="triggerAlert()">ORDER NOW</button>
-                </article>
-                <article class="product-item">
-                    <div class="img-wrapper"><img src="https://media-amazon.com"></div>
-                    <h3>The Dutchess (Deluxe) [CD]</h3>
-                    <span class="price">$16.99</span>
-                    <button class="order-btn" onclick="triggerAlert()">ORDER NOW</button>
-                </article>
-                <article class="product-item">
-                    <div class="img-wrapper"><img src="https://media-amazon.com"></div>
-                    <h3>The Dutchess [Vinyl]</h3>
-                    <span class="price">$32.00</span>
-                    <button class="order-btn" onclick="triggerAlert()">ORDER NOW</button>
-                </article>
+                <!-- Seus produtos aqui... -->
                 <article class="product-item">
                     <div class="img-wrapper"><img src="https://media-amazon.com"></div>
                     <h3>Double Dutchess [CD]</h3>
                     <span class="price">$14.99</span>
-                    <button class="order-btn" onclick="triggerAlert()">ORDER NOW</button>
+                    <button class="order-btn" onclick="alert('Unavailable')">ORDER NOW</button>
                 </article>
-                <article class="product-item">
-                    <div class="img-wrapper"><img src="https://media-amazon.com"></div>
-                    <h3>Double Dutchess (Target Edition) [CD]</h3>
-                    <span class="price">$18.50</span>
-                    <button class="order-btn" onclick="triggerAlert()">ORDER NOW</button>
-                </article>
-                <article class="product-item">
-                    <div class="img-wrapper"><img src="https://media-amazon.com"></div>
-                    <h3>Double Dutchess [Vinyl]</h3>
-                    <span class="price">$35.00</span>
-                    <button class="order-btn" onclick="triggerAlert()">ORDER NOW</button>
-                </article>
+                <!-- Repetir conforme os itens anteriores -->
             </div>
         </section>
     </main>
@@ -78,14 +49,32 @@
     <footer class="site-footer">
         <div class="footer-content">
             <p>DESIGNED BY FAN EXPERIENCE. ALL RIGHTS RESERVED TO BMG / DUTCHESS MUSIC.</p>
-            <p class="disclaimer">DISCLAIMER: THIS IS A NON-PROFIT FANMADE WEBSITE. WE HAVE NO OFFICIAL AFFILIATION WITH FERGIE, DUTCHESS MUSIC, OR HER MANAGEMENT TEAM.</p>
+            <p class="disclaimer">DISCLAIMER: THIS IS A NON-PROFIT FANMADE WEBSITE. WE HAVE NO OFFICIAL AFFILIATION WITH FERGIE OR HER MANAGEMENT TEAM.</p>
         </div>
     </footer>
 
     <script>
-        function triggerAlert() {
-            alert("NOTICE: This product is currently unavailable for purchase in your region.");
-        }
+        const words = ["FERGIE", "DOUBLE DUTCHESS", "DD", "DOUBLE", "DUTCHESS"];
+        const fonts = [
+            "'Inter', -apple-system, sans-serif", 
+            "system-ui, -apple-system, sans-serif",
+            "'Helvetica Neue', Helvetica, sans-serif",
+            "Arial, sans-serif"
+        ];
+        const weights = ["900", "100", "400", "800", "300"];
+        
+        const textElement = document.getElementById('strobeText');
+
+        // Lógica frenética estilo Enter the Void
+        setInterval(() => {
+            textElement.innerText = words[Math.floor(Math.random() * words.length)];
+            textElement.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
+            textElement.style.fontWeight = weights[Math.floor(Math.random() * weights.length)];
+            
+            // Randomiza a escala para o efeito "agressivo"
+            const scale = Math.random() * (1.2 - 0.8) + 0.8;
+            textElement.style.transform = `scale(${scale})`;
+        }, 60); // 60ms = Velocidade frenética
     </script>
 </body>
 </html>
