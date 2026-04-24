@@ -1,126 +1,113 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FERGIE | DOUBLE DUTCHESS</title>
-    
-    <!-- Bibliotecas Necessárias (Carregam sozinhas) -->
-    <link rel="stylesheet" href="https://jsdelivr.net" />
-    <link href="https://googleapis.com" rel="stylesheet">
-    <script src="https://cloudflare.com"></script>
-    <script src="https://cloudflare.com"></script>
-    <script src="https://jsdelivr.net"></script>
-
-    <style>
-        :root { --white: #ffffff; --black: #000000; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background: #000;
-            color: var(--white);
-            font-family: 'Syncopate', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* HEADER E SLIDER */
-        .main-header { height: 100vh; position: relative; width: 100%; overflow: hidden; }
-        .swiper { height: 100%; width: 100%; filter: grayscale(100%) contrast(1.2); }
-        .swiper-slide { background-size: cover; background-position: center; }
-
-        /* TÍTULO CENTRALIZADO E EFEITO ALTERNADO */
-        .header-overlay {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            z-index: 10; text-align: center; width: 100%; pointer-events: none;
-        }
-
-        h1 { font-size: clamp(3rem, 12vw, 9rem); line-height: 0.85; letter-spacing: -2px; }
-
-        /* Animação Estroboscópica */
-        @keyframes alt1 { 
-            0%, 49% { color: white; -webkit-text-stroke: 1.5px transparent; } 
-            50%, 100% { color: transparent; -webkit-text-stroke: 1.5px white; } 
-        }
-        @keyframes alt2 { 
-            0%, 49% { color: transparent; -webkit-text-stroke: 1.5px white; } 
-            50%, 100% { color: white; -webkit-text-stroke: 1.5px transparent; } 
-        }
-
-        .double { animation: alt1 0.4s infinite; }
-        .dutchess { animation: alt2 0.4s infinite; }
-
-        /* SEÇÃO DOS VINIS */
-        .vinyl-section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 0.7rem; letter-spacing: 8px; margin-bottom: 60px; opacity: 0.5; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; }
-        .card { text-align: center; padding: 20px; }
-        .img-box { background: #080808; padding: 40px; border: 1px solid #111; margin-bottom: 20px; }
-        .img-box img { width: 100%; filter: drop-shadow(0 20px 30px #000); transition: 0.5s; }
-        .card:hover img { transform: scale(1.05) rotate(3deg); }
-
-        .price { display: block; margin: 10px 0; opacity: 0.6; font-size: 0.8rem; }
-        .btn { 
-            background: none; border: 1px solid #fff; color: #fff; padding: 12px 30px; 
-            font-size: 0.6rem; cursor: pointer; transition: 0.3s; 
-        }
-        .btn:hover { background: #fff; color: #000; }
-
-        footer { padding: 40px; text-align: center; font-size: 0.5rem; opacity: 0.3; letter-spacing: 2px; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="gradient">
 
-    <header class="main-header">
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image: url('https://unsplash.com')"></div>
-                <div class="swiper-slide" style="background-image: url('https://unsplash.com')"></div>
-            </div>
+    <!-- HEADER ESTROBOSCÓPICO GIGANTE -->
+    <header class="strobe-header">
+        <div class="header-image-container">
+            <!-- Espaço para a imagem de fundo dela -->
+            <img src="https://tcdn.com.br" alt="Fergie" class="hero-img">
         </div>
-        <div class="header-overlay">
-            <h1 class="double">DOUBLE</h1>
-            <h1 class="dutchess">DUTCHESS</h1>
+        <div class="header-text-wrapper">
+            <h1 class="strobe-text left">FERGIE</h1>
+            <h1 class="strobe-text right">DOUBLE DUTCHESS</h1>
         </div>
     </header>
 
-    <main class="vinyl-section">
-        <h2 class="section-title">VINYL COLLECTION</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="img-box"><img src="https://media-amazon.com"></div>
-                <h3>DOUBLE DUTCHESS</h3>
-                <span class="price">$45.00</span>
-                <button class="btn">ADD TO CART</button>
-            </div>
-            <div class="card">
-                <div class="img-box"><img src="https://media-amazon.com"></div>
-                <h3>THE DUTCHESS</h3>
-                <span class="price">$38.00</span>
-                <button class="btn">ADD TO CART</button>
+    <!-- NAVEGAÇÃO ESTILO MADONNA -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#about">THE EXPERIENCE</a></li>
+            <li><a href="#shop">SHOP</a></li>
+            <li><a href="#">ARCHIVE</a></li>
+        </ul>
+    </nav>
+
+    <!-- PÁGINA EXPLICATIVA / WIKI SECTION -->
+    <section id="about" class="wiki-section">
+        <div class="container">
+            <div class="wiki-content">
+                <span class="label">VISUAL EXPERIENCE</span>
+                <h2>THE DOUBLE DUTCHESS PROJECT</h2>
+                <p>Released in 2017, <strong>Double Dutchess</strong> is the second studio album by American singer Fergie. It marks her first independent release under her own label, Dutchess Music. The project was conceived as a "Visual Experience," where each track is accompanied by a high-fashion music video directed by Bruno Ilogti and creative directed by Giovanni Bianco.</p>
+                <p>The aesthetic merges black-and-white noir photography with digital "glitch" textures, exploring themes of fame, motherhood, and resilience.</p>
             </div>
         </div>
-    </main>
+    </section>
 
-    <footer>&copy; 2026 FERGIE ESTATE | DOUBLE DUTCHESS ERA | BMG MUSIC</footer>
+    <!-- SHOP SECTION -->
+    <section id="shop" class="shop-section">
+        <div class="section-title">
+            <h2>PHYSICALS & BOUTIQUE</h2>
+        </div>
+
+        <div class="product-grid">
+            <!-- The Dutchess [CD] -->
+            <article class="product-card">
+                <img src="https://media-amazon.com" alt="The Dutchess CD">
+                <h3>The Dutchess [CD]</h3>
+                <span class="price">$13.98</span>
+                <button class="order-btn">ORDER NOW</button>
+            </article>
+
+            <!-- The Dutchess (Deluxe) [CD] -->
+            <article class="product-card">
+                <img src="https://media-amazon.com" alt="Deluxe CD">
+                <h3>The Dutchess (Deluxe) [CD]</h3>
+                <span class="price">$16.99</span>
+                <button class="order-btn">ORDER NOW</button>
+            </article>
+
+            <!-- The Dutchess [Vinyl] -->
+            <article class="product-card">
+                <img src="https://media-amazon.com" alt="Dutchess Vinyl">
+                <h3>The Dutchess [Vinyl]</h3>
+                <span class="price">$32.00</span>
+                <button class="order-btn">ORDER NOW</button>
+            </article>
+
+            <!-- Double Dutchess [CD] -->
+            <article class="product-card">
+                <img src="https://media-amazon.com" alt="Double CD">
+                <h3>Double Dutchess [CD]</h3>
+                <span class="price">$14.99</span>
+                <button class="order-btn">ORDER NOW</button>
+            </article>
+
+            <!-- Double Dutchess (Target) [CD] -->
+            <article class="product-card">
+                <img src="https://media-amazon.com" alt="Target CD">
+                <h3>Double Dutchess (Target Exclusive Edition) [CD]</h3>
+                <span class="price">$18.50</span>
+                <button class="order-btn">ORDER NOW</button>
+            </article>
+
+            <!-- Double Dutchess [Vinyl] -->
+            <article class="product-card">
+                <img src="https://media-amazon.com" alt="Double Vinyl">
+                <h3>Double Dutchess [Vinyl]</h3>
+                <span class="price">$35.00</span>
+                <button class="order-btn">ORDER NOW</button>
+            </article>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>© DUTCHESS MUSIC INC. / BMG RIGHTS MANAGEMENT</p>
+    </footer>
 
     <script>
-        // Inicia o Slider de fotos
-        new Swiper(".mySwiper", {
-            loop: true,
-            effect: "fade",
-            autoplay: { delay: 3000 },
-            speed: 2000
-        });
-
-        // Faz os vinis aparecerem ao descer a página
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.from(".card", {
-            scrollTrigger: ".grid",
-            y: 50,
-            opacity: 0,
-            stagger: 0.3,
-            duration: 1
+        // Disclaimer Logic
+        document.querySelectorAll('.order-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert("This product is currently unavailable in your region.");
+            });
         });
     </script>
 </body>
