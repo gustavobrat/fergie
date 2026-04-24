@@ -12,17 +12,14 @@
         <div class="visual-center">
             <img src="https://media-amazon.com" alt="Fergie">
         </div>
-        
         <div class="void-title-container">
             <h1 class="word-shifter" id="strobeText">FERGIE</h1>
         </div>
-        <!-- Scroll indicator removido -->
     </header>
 
     <main class="site-main">
         <section class="editorial-section">
             <div class="editorial-grid">
-                <!-- LADO ESQUERDO: TEXTO -->
                 <div class="wiki-container">
                     <span class="eyebrow">ARCHIVE / VISUAL EXPERIENCE</span>
                     <h2>DOUBLE DUTCHESS</h2>
@@ -31,11 +28,10 @@
                     </div>
                 </div>
 
-                <!-- LADO DIREITO: VÍDEO MENOR -->
                 <div class="video-side">
                     <div class="video-wrapper">
-                        <iframe src="https://youtube.com" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            src="https://youtu.be/t3Qs0gMDOnY?si=eHvWD7_Yw6LbWgoj" 
+                        <iframe 
+                            src="https://youtube.com" 
                             title="Double Dutchess" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -50,19 +46,27 @@
             <div class="shop-nav">PHYSICAL RELEASES</div>
             <div class="product-grid">
                 <article class="product-item">
-                    <div class="img-wrapper"><img src="https://media-amazon.com" alt="CD"></div>
+                    <div class="img-wrapper">
+                        <img src="https://media-amazon.com" alt="CD">
+                    </div>
                     <h3>Double Dutchess [CD]</h3>
                     <span class="price">$14.99</span>
                     <button class="order-btn" onclick="alert('Unavailable')">ORDER NOW</button>
                 </article>
+
                 <article class="product-item">
-                    <div class="img-wrapper"><img src="https://media-amazon.com" alt="LP"></div>
+                    <div class="img-wrapper">
+                        <img src="https://media-amazon.com" alt="LP">
+                    </div>
                     <h3>Double Dutchess [2LP]</h3>
                     <span class="price">$34.99</span>
                     <button class="order-btn" onclick="alert('Unavailable')">ORDER NOW</button>
                 </article>
+
                 <article class="product-item">
-                    <div class="img-wrapper"><img src="https://media-amazon.com" alt="Target"></div>
+                    <div class="img-wrapper">
+                        <img src="https://media-amazon.com" alt="Target">
+                    </div>
                     <h3>Target Exclusive</h3>
                     <span class="price">$17.99</span>
                     <button class="order-btn" onclick="alert('Unavailable')">ORDER NOW</button>
@@ -83,12 +87,13 @@
         const words = ["FERGIE", "DOUBLE DUTCHESS", "DD", "DOUBLE", "DUTCHESS"];
         const weights = ["900", "100", "800", "300"];
         const textElement = document.getElementById('strobeText');
+
         setInterval(() => {
             textElement.innerText = words[Math.floor(Math.random() * words.length)];
             textElement.style.fontWeight = weights[Math.floor(Math.random() * weights.length)];
-            const scale = Math.random() * (1.1 - 0.9) + 0.9;
+            const scale = Math.random() * (1.05 - 0.95) + 0.95;
             textElement.style.transform = `scale(${scale})`;
-        }, 80); 
+        }, 120);
     </script>
 </body>
 </html>
