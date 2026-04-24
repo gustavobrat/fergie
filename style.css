@@ -1,0 +1,190 @@
+/* Importando Variáveis do Usuário */
+:root {
+    --font-body-family: 'Helvetica Neue LT Std', 'Futura Std', sans-serif;
+    --font-heading-family: "Arial Black", sans-serif;
+    --duration-fast: 0.05s;
+    --page-width: 140rem;
+}
+
+html, body {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-family: var(--font-body-family);
+    overflow-x: hidden;
+}
+
+/* HEADER ESTROBOSCÓPICO */
+.strobe-header {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    overflow: hidden;
+    border-bottom: 1px solid #222;
+}
+
+.header-image-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(0.4);
+}
+
+.header-text-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.strobe-text {
+    font-family: var(--font-heading-family);
+    font-size: 8rem;
+    font-weight: 900;
+    margin: 0;
+    color: #000; /* Cor preta conforme solicitado */
+    text-transform: uppercase;
+    animation: strobeEffect var(--duration-fast) infinite alternate;
+}
+
+@keyframes strobeEffect {
+    0% {
+        -webkit-text-stroke: 2px #fff;
+        color: #000;
+    }
+    100% {
+        -webkit-text-stroke: 0px transparent;
+        color: #000;
+        background: #fff; /* Filler */
+    }
+}
+
+/* NAVIGATION */
+.main-nav {
+    background: #000;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.main-nav li { display: inline; margin: 0 30px; }
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+}
+
+/* WIKI SECTION */
+.wiki-section {
+    padding: 100px 5%;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.label {
+    color: #555;
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.wiki-section h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+/* SHOP SECTION */
+.shop-section {
+    padding: 60px 20px;
+    background: #050505;
+}
+
+.section-title {
+    text-align: center;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1px;
+    background: #1a1a1a;
+    max-width: var(--page-width);
+    margin: 0 auto;
+}
+
+.product-card {
+    background: #000;
+    padding: 40px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+    margin-bottom: 20px;
+}
+
+.product-card:hover img { filter: grayscale(0%); }
+
+.product-card h3 {
+    font-size: 1.1rem;
+    margin: 15px 0;
+    height: 50px;
+}
+
+.price {
+    display: block;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.order-btn {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 15px 40px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+.order-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.site-footer {
+    padding: 50px;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #333;
+    letter-spacing: 2px;
+}
